@@ -22,7 +22,7 @@
             
             <item id="IsInitDSG_MS_Monitor">
                 <name>IsInitDSG_MS_Monitor</name>
-                <value>启用</value>
+                <value>停用</value>
                 <comment>是否初始化数据库连接池组。如果不在内部初始化，请在外部预先初始化好</comment>
             </item>
             

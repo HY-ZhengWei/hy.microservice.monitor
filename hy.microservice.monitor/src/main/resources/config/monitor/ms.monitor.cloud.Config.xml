@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <import name="xconfig"         class="java.util.ArrayList" />
+    <import name="servers"         class="java.util.ArrayList" />
+    <import name="server"          class="org.hy.common.xml.XHttp" />
+    
+    
+    
+    <!-- 云监控服务器配置信息 -->
+    <!-- 此配置文件会在集群运行中动态添加、修改并保存 -->
+    <xconfig>
+        
+        <!-- 支持动态增、减服务器，重新动态加载本配置文件即可，无须重启服务器，也无须重启集群 -->
+        <servers id="MS_Monitor_ClusterServers" this="MS_Monitor_ClusterServers">
+            
+            <call name="clear" />
+            
+            <!-- 配置在第一位置即为Master。无任务服务的，即单机监控 -->
+            <server>
+                <ip>10.1.50.239</ip>
+                <port>80</port>
+            </server>
+            
+        </servers>
+        
+    </xconfig>
+    
+</config>

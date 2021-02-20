@@ -20,6 +20,10 @@
             <item>
                 <value>config/monitor/ms.monitor.XSSO.xml</value>
             </item>
+            
+            <item>
+                <value>config/monitor/ms.monitor.cloud.Config.xml</value>
+            </item>
 
             <!-- 加载数据库目录所有配置文件 -->
             <item>
