@@ -113,6 +113,24 @@
             <version>8.0.22</version>
         </dependency>
         
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>5.7.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>5.7.0</version>
+        </dependency>
+        
         <!-- https://github.com/HY-ZhengWei/hy.common.base -->
         <dependency>
             <groupId>org</groupId>
