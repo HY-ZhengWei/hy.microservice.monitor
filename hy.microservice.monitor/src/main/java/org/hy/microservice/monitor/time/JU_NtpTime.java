@@ -28,13 +28,36 @@ public class JU_NtpTime
      * @param i_Args
      * @throws UnknownHostException
      */
-    public static void main(String [] i_Args) throws UnknownHostException
+    public static void main_01(String [] i_Args) throws UnknownHostException
     {
         // NtpTime v_Ntp      = new NtpTime("time.windows.com");
         NtpTime v_Ntp  = new NtpTime("10.1.50.21");
         Time    v_Time = v_Ntp.getTime();
         
         new SysTime().setTime(v_Time.getDelay());
+    }
+    
+    
+    
+    /**
+     * 测试多个Ntp服务下的时间校正
+     * 
+     * @author      ZhengWei(HY)
+     * @createDate  2021-03-08
+     * @version     v1.0
+     *
+     * @param i_Args
+     * @throws UnknownHostException
+     */
+    public static void main(String [] i_Args) throws UnknownHostException
+    {
+        SyncTime v_SyncTime = new SyncTime();
+        
+        v_SyncTime.setAddNtpServer(new NtpTime("ntp.ntsc.ac.cn"));  // 国家授时中心
+        v_SyncTime.setAddNtpServer(new NtpTime("ntp.aliyun.com"));  // 阿里的
+        v_SyncTime.setAddNtpServer(new NtpTime("10.1.50.21"));      // 内网的
+        
+        v_SyncTime.syncTime();
     }
     
 }

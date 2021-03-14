@@ -14,6 +14,9 @@ package org.hy.microservice.monitor.time;
 public class Time
 {
     
+    /** Ntp服务器的名称或地址 */
+    private String ntpServer;
+    
     /** Ntp服务器的时间戳 */
     private long ntpTime;
     
@@ -61,6 +64,27 @@ public class Time
     {
         this.delay = delay;
         return this;
+    }
+
+
+    /**
+     * 获取：Ntp服务器的名称或地址
+     */
+    public String getNtpServer()
+    {
+        return ntpServer;
+    }
+
+
+    /**
+     * 设置：Ntp服务器的名称或地址
+     * 
+     * @param ntpServer 
+     */
+    public String setNtpServer(String ntpServer)
+    {
+        this.ntpServer = ntpServer;
+        return this.ntpServer;
     }
     
 }

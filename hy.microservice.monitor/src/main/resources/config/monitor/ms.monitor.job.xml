@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <import name="xconfig"         class="java.util.ArrayList" />
+    <import name="job"             class="org.hy.common.thread.Job" />
+    <import name="jobs"            class="org.hy.common.thread.Jobs" />
+    
+    
+    
+    <!-- 任务配置信息 -->
+    <xconfig>
+    
+        <job id="JOB_MS_Monitor_NtpTime">
+            <code>JOB_MS_Monitor_NtpTime</code>
+            <name>校准操作系统时间</name>
+            <intervalType ref="this.$IntervalType_Minute"/>
+            <intervalLen>1</intervalLen>
+            <startTime>2021-03-12 00:00:00</startTime>
+            <xid>MS_Monitor_SyncTime</xid>
+            <methodName>syncTime</methodName>
+        </job>
+        
+        
+        
+        <jobs id="JOBS_MS_Monitor" this="JOBS_MS_Monitor">
+            <call name="shutdown" />  <!-- 停止所有定时任务。预防多次重复加载时的异常 -->
+            <call name="delJobs" />   <!-- 删除所有定时任务。预防多次重复加载时的异常 -->
+        
+            <addJob ref="JOB_MS_Monitor_NtpTime" />
+            
+            <call name="startup" />
+        </jobs>
+        
+    </xconfig>
+    
+</config>

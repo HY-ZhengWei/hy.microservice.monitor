@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <import name="xconfig"  class="java.util.ArrayList" />
+    <import name="ntp"      class="org.hy.microservice.monitor.time.NtpTime" />
+    <import name="syncTime" class="org.hy.microservice.monitor.time.SyncTime" />
+    
+    
+    
+    <!-- 校准时间的配置信息 -->
+    <xconfig>
+    
+        <ntp id="MS_Monitor_NtpServer_国家授时中心">
+            <constructor>
+                <String>ntp.ntsc.ac.cn</String>
+            </constructor>
+        </ntp>
+        
+        <ntp id="MS_Monitor_NtpServer_阿里">
+            <constructor>
+                <String>ntp.aliyun.com</String>
+            </constructor>
+        </ntp>
+        
+        <ntp id="MS_Monitor_NtpServer_内网">
+            <constructor>
+                <String>10.1.50.21</String>
+            </constructor>
+        </ntp>
+        
+        
+        
+        <syncTime id="MS_Monitor_SyncTime">
+            <addNtpServer ref="MS_Monitor_NtpServer_国家授时中心" />
+            <addNtpServer ref="MS_Monitor_NtpServer_阿里"         />
+            <addNtpServer ref="MS_Monitor_NtpServer_内网"         />
+        </syncTime>
+        
+    </xconfig>
+    
+</config>
