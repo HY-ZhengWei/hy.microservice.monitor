@@ -23,6 +23,12 @@
             </constructor>
         </ntp>
         
+        <ntp id="MS_Monitor_NtpServer_电信">
+            <constructor>
+                <String>10.1.85.100</String>
+            </constructor>
+        </ntp>
+        
         <ntp id="MS_Monitor_NtpServer_内网">
             <constructor>
                 <String>10.1.50.21</String>
@@ -34,6 +40,7 @@
         <syncTime id="MS_Monitor_SyncTime">
             <addNtpServer ref="MS_Monitor_NtpServer_国家授时中心" />
             <addNtpServer ref="MS_Monitor_NtpServer_阿里"         />
+            <addNtpServer ref="MS_Monitor_NtpServer_电信"         />
             <addNtpServer ref="MS_Monitor_NtpServer_内网"         />
         </syncTime>
         

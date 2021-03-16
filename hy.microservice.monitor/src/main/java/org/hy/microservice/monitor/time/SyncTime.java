@@ -201,9 +201,12 @@ public class SyncTime
             
             if ( this.historyTimes.size() <= 0 )
             {
-                v_BestTime  = v_NtpTime;
-                v_BestLevel = 1;
-                break;
+                if ( v_BestTime == null )
+                {
+                    v_BestTime  = v_NtpTime;
+                    v_BestLevel = 1;
+                }
+                continue;
             }
             
             Object [] v_HistoryTimes = this.historyTimes.getArray();
@@ -226,13 +229,13 @@ public class SyncTime
                 Time v_Last2   = (Time)v_HistoryTimes[v_HistoryTimes.length - 2];
                 long v_Diff1_2 = v_Last1.getNtpTime() - v_Last2.getNtpTime();
                 
-                if ( Math.abs(v_Diff0_1 - v_Diff1_2) <= v_NtpServer.getTimeout() * 1000 )
+                if ( v_Diff0_1 > 0 && Math.abs(v_Diff0_1 - v_Diff1_2) <= v_NtpServer.getTimeout() * 1000 )
                 {
                     if ( v_BestTime == null || v_BestLevel < 3 )
                     {
                         v_BestTime  = v_NtpTime;
                         v_BestLevel = 3;
-                        break;
+                        continue;
                     }
                 }
             }
