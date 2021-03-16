@@ -20,26 +20,26 @@ import org.hy.common.xml.log.Logger;
  * @createDate  2021-03-12
  * @version     v1.0
  */
-public class SyncTime
+public class SyncTimer
 {
-    private static Logger $Logger = Logger.getLogger(SyncTime.class);
+    private static Logger $Logger = Logger.getLogger(SyncTimer.class);
     
     
     
     /** NTP服务器的列表 */
-    private List<NtpTime> ntpServers;
+    private List<NtpServer> ntpServers;
     
     /** 历史校准时间的列表 */
-    private Busway<Time>  historyTimes;
+    private Busway<Time>    historyTimes;
     
     /** 设定本机时间 */
-    private SysTime       sysTime;
+    private SysTime         sysTime;
     
     
     
-    public SyncTime()
+    public SyncTimer()
     {
-        this.ntpServers   = new ArrayList<NtpTime>();
+        this.ntpServers   = new ArrayList<NtpServer>();
         this.historyTimes = new Busway<Time>(10);
         this.sysTime      = new SysTime();
     }
@@ -189,8 +189,8 @@ public class SyncTime
         int     v_BestLevel = 0;
         for (int x=0; x<this.ntpServers.size(); x++)
         {
-            NtpTime v_NtpServer = this.ntpServers.get(x);
-            Time    v_NtpTime   = v_NtpServer.getTime();
+            NtpServer v_NtpServer = this.ntpServers.get(x);
+            Time      v_NtpTime   = v_NtpServer.getTime();
             
             v_NtpTimes[x] = v_NtpTime;
             
@@ -335,9 +335,9 @@ public class SyncTime
     
     
     
-    public synchronized void setAddNtpServer(NtpTime i_NtpTime)
+    public synchronized void setAddNtpServer(NtpServer i_NtpServer)
     {
-        this.ntpServers.add(i_NtpTime);
+        this.ntpServers.add(i_NtpServer);
     }
     
     

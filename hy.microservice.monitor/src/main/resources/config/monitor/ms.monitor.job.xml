@@ -17,7 +17,7 @@
             <intervalType ref="this.$IntervalType_Minute"/>
             <intervalLen>1</intervalLen>
             <startTime>2021-03-12 00:00:00</startTime>
-            <xid>MS_Monitor_SyncTime</xid>
+            <xid>MS_Monitor_SyncTimer</xid>
             <methodName>syncTime</methodName>
         </job>
         

@@ -2,9 +2,9 @@
 
 <config>
 
-    <import name="xconfig"  class="java.util.ArrayList" />
-    <import name="ntp"      class="org.hy.microservice.monitor.time.NtpTime" />
-    <import name="syncTime" class="org.hy.microservice.monitor.time.SyncTime" />
+    <import name="xconfig"   class="java.util.ArrayList" />
+    <import name="ntp"       class="org.hy.microservice.monitor.time.NtpServer" />
+    <import name="syncTimer" class="org.hy.microservice.monitor.time.SyncTimer" />
     
     
     
@@ -37,12 +37,12 @@
         
         
         
-        <syncTime id="MS_Monitor_SyncTime">
+        <syncTimer id="MS_Monitor_SyncTimer">
             <addNtpServer ref="MS_Monitor_NtpServer_国家授时中心" />
             <addNtpServer ref="MS_Monitor_NtpServer_阿里"         />
             <addNtpServer ref="MS_Monitor_NtpServer_电信"         />
             <addNtpServer ref="MS_Monitor_NtpServer_内网"         />
-        </syncTime>
+        </syncTimer>
         
     </xconfig>
     

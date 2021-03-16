@@ -20,10 +20,10 @@ import org.hy.common.xml.log.Logger;
  * @createDate  2021-03-04
  * @version     v1.0
  */
-public class NtpTime
+public class NtpServer
 {
     
-    private static Logger $Logger = Logger.getLogger(NtpTime.class);
+    private static Logger $Logger = Logger.getLogger(NtpServer.class);
     
     
     
@@ -41,14 +41,14 @@ public class NtpTime
     
     
     
-    public NtpTime(String i_Host) throws UnknownHostException
+    public NtpServer(String i_Host) throws UnknownHostException
     {
         this(i_Host ,NTPUDPClient.DEFAULT_PORT);
     }
     
     
     
-    public NtpTime(String i_Host ,int i_Port) throws UnknownHostException
+    public NtpServer(String i_Host ,int i_Port) throws UnknownHostException
     {
         this.ntpServerName = i_Host;
         this.ntpServerHost = InetAddress.getByName(i_Host);

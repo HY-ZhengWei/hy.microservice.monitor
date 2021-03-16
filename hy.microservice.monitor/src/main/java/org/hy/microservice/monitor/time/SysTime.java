@@ -28,7 +28,7 @@ import com.sun.jna.platform.win32.WinBase.SYSTEMTIME;
  */
 public class SysTime
 {
-    private static Logger $Logger = Logger.getLogger(NtpTime.class);
+    private static Logger $Logger = Logger.getLogger(SysTime.class);
     
     
     
