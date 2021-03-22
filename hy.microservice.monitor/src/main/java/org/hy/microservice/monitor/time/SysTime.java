@@ -42,7 +42,15 @@ public class SysTime
     
     public SysTime()
     {
-        String v_OSName = System.getProperty("os.name").toLowerCase();
+        String v_OSName = System.getProperty("os.name");
+        
+        if ( Help.isNull(v_OSName) )
+        {
+            v_OSName = "window";
+            $Logger.warn("os.name is null.");
+        }
+        
+        v_OSName = v_OSName.toLowerCase();
         
         if ( StringHelp.isContains(v_OSName ,"window") )
         {
