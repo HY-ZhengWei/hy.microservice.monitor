@@ -8,6 +8,7 @@ import org.hy.common.Return;
 import org.hy.common.xml.XHttp;
 import org.hy.common.xml.XJSON;
 import org.hy.common.xml.annotation.Xjava;
+import org.hy.common.xml.log.Logger;
 import org.hy.microservice.common.BaseResponse;
 
 
@@ -24,6 +25,7 @@ import org.hy.microservice.common.BaseResponse;
 @Xjava
 public class UserService
 {
+    private static Logger $Logger = Logger.getLogger(UserService.class);
     
     @Xjava(ref="XHTTP_MS_Monitor_GetLoginUser")
     private XHttp xhGetLoginUser;
@@ -67,7 +69,7 @@ public class UserService
         }
         catch (Exception exce)
         {
-            exce.printStackTrace();
+            $Logger.error(exce);
         }
         
         return null;
