@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.management.AttributeNotFoundException;
+import javax.management.InstanceNotFoundException;
+import javax.management.MBeanException;
 import javax.management.MBeanServer;
 import javax.management.MBeanServerFactory;
+import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
+import javax.management.ReflectionException;
 
 import org.hy.common.Help;
 import org.hy.common.StringHelp;
@@ -181,7 +186,23 @@ public class MonitorController
                         }
                     }
                 } 
-                catch (Exception exce) 
+                catch (MalformedObjectNameException exce) 
+                {
+                    $Logger.error(exce);
+                }
+                catch (InstanceNotFoundException exce)
+                {
+                    $Logger.error(exce);
+                }
+                catch (AttributeNotFoundException exce)
+                {
+                    $Logger.error(exce);
+                }
+                catch (ReflectionException exce)
+                {
+                    $Logger.error(exce);
+                }
+                catch (MBeanException exce)
                 {
                     $Logger.error(exce);
                 }
