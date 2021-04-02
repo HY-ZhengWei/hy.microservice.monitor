@@ -25,11 +25,6 @@
                 <value>config/monitor/ms.monitor.NTP.xml</value>
             </item>
             
-            <!-- 加载数据库目录所有配置文件 -->
-            <item>
-                <value>db/monitor</value>
-            </item>
-            
             <item>
                 <value>config/monitor/ms.monitor.job.xml</value>
             </item>
