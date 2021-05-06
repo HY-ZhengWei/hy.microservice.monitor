@@ -19,8 +19,8 @@ import org.hy.common.app.Param;
 import org.hy.common.xml.XHttp;
 import org.hy.common.xml.log.Logger;
 import org.hy.microservice.common.BaseResponse;
-import org.hy.microservice.monitor.user.UserService;
 import org.hy.microservice.monitor.user.UserSSO;
+import org.hy.microservice.monitor.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
@@ -88,7 +88,7 @@ public class MonitorController
             return v_RetResp.setCode("-1").setMessage("未收到任何参数");
         }
         
-        if ( Help.isNull(i_Server.getIp()) ) 
+        if ( Help.isNull(i_Server.getIp()) )
         {
             return v_RetResp.setCode("-2").setMessage("服务IP地址为空");
         }
@@ -97,13 +97,13 @@ public class MonitorController
         if ( isCheckToken != null && Boolean.parseBoolean(isCheckToken.getValue()) )
         {
             // 验证票据及用户登录状态
-            if ( Help.isNull(i_Token) ) 
+            if ( Help.isNull(i_Token) )
             {
                 return v_RetResp.setCode("-901").setMessage("非法访问");
             }
             
             UserSSO v_User = this.userService.getUser(i_Token);
-            if ( v_User == null ) 
+            if ( v_User == null )
             {
                 return v_RetResp.setCode("-901").setMessage("非法访问");
             }
@@ -141,21 +141,21 @@ public class MonitorController
         String            v_LocalID      = StringHelp.getUUID();
         List<MBeanServer> v_MBeanServers = MBeanServerFactory.findMBeanServer(null);
         
-        if ( !Help.isNull(v_MBeanServers) ) 
+        if ( !Help.isNull(v_MBeanServers) )
         {
             for (MBeanServer v_MBeanServer : v_MBeanServers)
             {
-                try 
+                try
                 {
                     Set<ObjectName> v_ObjectNames = v_MBeanServer.queryNames(new ObjectName("Catalina:type=Connector,*"), null);
                 
-                    if ( Help.isNull(v_ObjectNames) ) 
+                    if ( Help.isNull(v_ObjectNames) )
                     {
                         // 没有发现JVM中关联的MBeanServer : " + mBeanServer.getDefaultDomain() + " 中的对象名称.";
                         continue;
                     }
                     
-                    for (ObjectName v_ObjectName : v_ObjectNames) 
+                    for (ObjectName v_ObjectName : v_ObjectNames)
                     {
                         String v_Scheme = (String) v_MBeanServer.getAttribute(v_ObjectName ,"scheme");
                         if ( Help.isNull(v_Scheme) || !StringHelp.isContains(v_Scheme.toLowerCase() ,"http" ,"https") )
@@ -185,8 +185,8 @@ public class MonitorController
                             v_Ret.add(v_Server);
                         }
                     }
-                } 
-                catch (MalformedObjectNameException exce) 
+                }
+                catch (MalformedObjectNameException exce)
                 {
                     $Logger.error(exce);
                 }

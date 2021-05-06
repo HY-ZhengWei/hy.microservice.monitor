@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <import name="sqls"            class="java.util.ArrayList" />
+    <import name="sqlGroup"        class="org.hy.common.xml.plugins.XSQLGroup" />
+    <import name="sql"             class="org.hy.common.xml.XSQL" />
+
+
+
+    <!-- 服务器监控的创建（自动创建）的相关SQL -->
+    <sqls>
+    
+        <sql id="XSQL_Create_MonitorServer">
+        
+            <dataSourceGroup ref="DSG_MS_Monitor" />
+            
+            <content>
+                <![CDATA[
+                CREATE TABLE MonitorServer
+                (
+                 id               VARCHAR(64)     NOT NULL          COMMENT '主键'
+                ,osType           VARCHAR(20)     NOT NULL          COMMENT '操作类型'
+                ,hostName         VARCHAR(100)    NOT NULL          COMMENT '主机名称'
+                ,startTime        DATETIME        NOT NULL          COMMENT '服务的启动时间'
+                ,systemTime       DATETIME        NOT NULL          COMMENT '操作系统的当前时间'
+                ,osCPURate        NUMERIC(10 ,4)                    COMMENT '操作系统CPU使用率'
+                ,osMemoryRate     NUMERIC(10 ,4)                    COMMENT '操作系统内存使用率'
+                ,osDiskMaxRate    NUMERIC(10 ,4)                    COMMENT '操作系统上最大的磁盘使用率'
+                ,javaVersion      VARCHAR(30)                       COMMENT '运行时的JDK版本'
+                ,jvmMaxMemory     NUMERIC(20)                       COMMENT 'JVM最大内存：Java虚拟机（这个进程）能构从操作系统那里挖到的最大的内存。JVM参数为：-Xmx'
+                ,jvmTotalMemory   NUMERIC(20)                       COMMENT 'JVM内存总量：Java虚拟机现在已经从操作系统那里挖过来的内存大小。JVM参数为：-Xms'
+                ,jvmFreeMemory    NUMERIC(20)                       COMMENT 'JVM空闲内存'
+                ,threadCount      INT             NOT NULL          COMMENT '线程总数'
+                ,queueCount       INT             NOT NULL          COMMENT '队列等待的任务数'
+                ,createTime       DATETIME        NOT NULL          COMMENT '创建时间'
+                ,isWarning        INT             NOT NULL          COMMENT '是否已发送警告。1:是； 0:否'
+                ,warnTime         DATETIME                          COMMENT '警告时间'
+                ,warnPhone        VARCHAR(30)                       COMMENT '警告手机'
+                ,warnCotent       VARCHAR(1000)                     COMMENT '警告内容'
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;/
+
+                ALTER TABLE MonitorServer ADD CONSTRAINT PK_FileInfo PRIMARY KEY (id);/
+                
+                CREATE INDEX MonitorServer_CTime_Host_IDX USING BTREE ON MonitorServer (createTime ,hostName);
+                
+                Alter TABLE MonitorServer COMMENT                   = '服务器监控信息';/
+                ]]>
+            </content>
+            
+            <comment>服务器监控信息</comment>
+            <create>MonitorServer</create>
+            
+        </sql>
+        
+    </sqls>
+    
+</config>

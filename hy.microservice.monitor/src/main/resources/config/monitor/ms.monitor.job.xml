@@ -24,11 +24,24 @@
         
         
         
+        <job id="JOB_MS_Monitor_ServerLog">
+            <code>JOB_MS_Monitor_ServerLog</code>
+            <name>监控服务运行日志</name>
+            <intervalType ref="this.$IntervalType_Minute"/>
+            <intervalLen>1</intervalLen>
+            <startTime>2021-03-12 00:00:00</startTime>
+            <xid>ServerService</xid>
+            <methodName>monitor</methodName>
+        </job>
+        
+        
+        
         <jobs id="JOBS_MS_Monitor" this="JOBS_MS_Monitor">
             <call name="shutdown" />  <!-- 停止所有定时任务。预防多次重复加载时的异常 -->
             <call name="delJobs" />   <!-- 删除所有定时任务。预防多次重复加载时的异常 -->
         
             <addJob ref="JOB_MS_Monitor_NtpTime" />
+            <addJob ref="JOB_MS_Monitor_ServerLog"  if="IsInitDSG_MS_Monitor.getValue == 启用" />
             
             <call name="startup" />
         </jobs>

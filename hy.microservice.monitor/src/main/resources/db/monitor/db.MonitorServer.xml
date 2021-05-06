@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <import name="sqls"            class="java.util.ArrayList" />
+    <import name="sqlGroup"        class="org.hy.common.xml.plugins.XSQLGroup" />
+    <import name="sql"             class="org.hy.common.xml.XSQL" />
+
+
+
+    <!-- 监控的相关SQL -->
+    <sqls>
+    
+        <sql id="XSQL_MS_Monitor_Server_Query_Warning"> 
+        
+            <dataSourceGroup ref="DSG_MS_Monitor" />
+            
+            <content>
+                <![CDATA[
+                SELECT  WB.*
+                  FROM  (
+                         SELECT  A.hostName
+                                ,MAX(A.createTime)  AS createTime
+                           FROM  MonitorServer  A
+                          WHERE  A.createTime > Date_Sub(Now() ,Interval  3 Day)
+                          GROUP  BY A.hostName
+                        )  WA
+                       ,MonitorServer   WB
+                 WHERE  WB.createTime = WA.createTime
+                   AND  WB.hostName   = WA.hostName
+                ]]>
+            </content>
+            
+            <result>
+                <row>org.hy.microservice.monitor.server.ServerInfo</row>
+                <cfill>setter(colValue)</cfill>
+            </result>
+            
+            <afterRule>
+                <file>config/monitor/ms.monitor.rule.Server.drl</file>
+            </afterRule>
+            
+        </sql>
+        
+    
+    
+        <sql id="XSQL_MS_Monitor_Server_Insert"> 
+        
+            <dataSourceGroup ref="DSG_MS_Monitor" />
+            
+            <content>
+                <![CDATA[
+                INSERT  INTO MonitorServer
+                       (
+                        id            
+                       ,osType        
+                       ,hostName      
+                       ,startTime     
+                       ,systemTime    
+                       ,osCPURate     
+                       ,osMemoryRate  
+                       ,osDiskMaxRate 
+                       ,javaVersion   
+                       ,jvmMaxMemory  
+                       ,jvmTotalMemory
+                       ,jvmFreeMemory 
+                       ,threadCount   
+                       ,queueCount    
+                       ,createTime    
+                       ,isWarning     
+                       ,warnTime      
+                       ,warnPhone     
+                       ,warnCotent            
+                       )
+                VALUES (
+                        ':id'            
+                       ,':osType'
+                       ,':hostName'
+                       ,':startTime'
+                       ,':systemTime'
+                       ,':osCPURate'
+                       ,':osMemoryRate'
+                       ,':osDiskMaxRate'
+                       ,':javaVersion'
+                       ,':jvmMaxMemory'
+                       ,':jvmTotalMemory'
+                       ,':jvmFreeMemory'
+                       ,':threadCount'
+                       ,':queueCount'
+                       ,NOW()
+                       ,0
+                       ,NULL
+                       ,NULL
+                       ,NULL
+                       )
+                ]]>
+            </content>
+            
+        </sql>
+        
+        
+        
+        <sql id="XSQL_MS_Monitor_Server_Update_Warning"> 
+        
+            <dataSourceGroup ref="DSG_MS_Monitor" />
+            
+            <content>
+                <![CDATA[
+                UPDATE  MonitorServer
+                   SET  isWarning  = '1'
+                       ,warnTime   = NOW()
+                       ,warnPhone  = ':warnPhone'
+                       ,warnCotent = ':warnCotent'
+                 WHERE  id         = ':id'
+                   AND  isWarning  = '0'
+                ]]>
+            </content>
+            
+        </sql>
+        
+    </sqls>
+    
+</config>
