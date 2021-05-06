@@ -15,9 +15,9 @@ rule "MS_Monitor_XRule_Server_Disk"
     salience 3
     dialect  "java"
     when
-        v_Log : ServerInfo( hostName == "10.1.123.206" && osDiskMaxRate >= 92 && isWarning == "0" );
+        v_Log : ServerInfo( hostName == "10.1.50.101" && osDiskMaxRate >= 92 && isWarning == "0" );
     then
-        String v_Phone   = "13669224517";
+        String v_Phone   = "19909218550";
         String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "硬盘空间吃紧" + v_Log.getOsDiskMaxRate() + "%";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
@@ -34,9 +34,9 @@ rule "MS_Monitor_XRule_Server_Memory"
     salience 2
     dialect  "java"
     when
-        v_Log : ServerInfo( hostName == "10.1.123.206" && osMemoryRate >= 90 && isWarning == "0" );
+        v_Log : ServerInfo( hostName == "10.1.50.101" && osMemoryRate >= 90 && isWarning == "0" );
     then
-        String v_Phone   = "13669224517";
+        String v_Phone   = "19909218550";
         String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "内存高占用" + v_Log.getOsMemoryRate() + "%";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
@@ -53,9 +53,9 @@ rule "MS_Monitor_XRule_Server_CPU"
     salience 1
     dialect  "java"
     when
-        v_Log : ServerInfo( hostName == '10.1.123.206' && osCPURate >= 95 && isWarning == "0" );
+        v_Log : ServerInfo( hostName == "10.1.50.101" && osCPURate >= 95 && isWarning == "0" );
     then
-        String v_Phone   = "13669224517";
+        String v_Phone   = "19909218550";
         String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "CPU繁忙" + v_Log.getOsCPURate() + "%";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
