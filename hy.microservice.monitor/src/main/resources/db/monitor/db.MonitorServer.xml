@@ -18,6 +18,24 @@
             <content>
                 <![CDATA[
                 SELECT  WB.*
+                       ,IFNULL((
+                               SELECT  AVG(SA.osCPURate) 
+                                 FROM  MonitorServer  SA
+                                WHERE  SA.createTime >= Date_Sub(Now() ,INTERVAL 3 Minute)
+                                  AND  SA.hostName    = WA.hostName
+                               ) ,0)   AS osCPURate3Avg
+                       ,IFNULL((
+                               SELECT  AVG(SA.osCPURate) 
+                                 FROM  MonitorServer  SA
+                                WHERE  SA.createTime >= Date_Sub(Now() ,INTERVAL 4 Minute)
+                                  AND  SA.hostName    = WA.hostName
+                               ) ,0)   AS osCPURate4Avg
+                        ,IFNULL((
+                               SELECT  AVG(SA.osCPURate) 
+                                 FROM  MonitorServer  SA
+                                WHERE  SA.createTime >= Date_Sub(Now() ,INTERVAL 5 Minute)
+                                  AND  SA.hostName    = WA.hostName
+                               ) ,0)   AS osCPURate5Avg
                   FROM  (
                          SELECT  A.hostName
                                 ,MAX(A.createTime)  AS createTime

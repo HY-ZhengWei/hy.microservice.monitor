@@ -1,6 +1,6 @@
 Manifest-Version: 1.0.1
 Created-By: HY.ZhengWei@qq.com  2021
-Specification-Version: 1.0.1  2021-05-06
+Specification-Version: 1.0.1  2021-05-07
 SourceCode: https://github.com/HY-ZhengWei/hy.microservice.monitor
 SourceCodeChina: https://gitee.com/HY-ZhengWei/hy.microservice.monitor
 Build-JDK: 1.8

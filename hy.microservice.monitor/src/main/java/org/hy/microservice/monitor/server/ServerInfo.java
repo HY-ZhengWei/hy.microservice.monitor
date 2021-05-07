@@ -2,6 +2,10 @@ package org.hy.microservice.monitor.server;
 
 import org.hy.common.Date;
 
+
+
+
+
 /**
  * 集群的服务器信息
  *
@@ -28,6 +32,15 @@ public class ServerInfo
     
     /** 操作系统CPU使用率 */
     private double osCPURate;
+    
+    /** 操作系统CPU使用率（3分钟内的平均值） */
+    private double osCPURate3Avg;
+    
+    /** 操作系统CPU使用率（4分钟内的平均值） */
+    private double osCPURate4Avg;
+    
+    /** 操作系统CPU使用率（5分钟内的平均值） */
+    private double osCPURate5Avg;
     
     /** 操作系统内存使用率 */
     private double osMemoryRate;
@@ -295,6 +308,42 @@ public class ServerInfo
     public void setOsDiskMaxRate(double osDiskMaxRate)
     {
         this.osDiskMaxRate = osDiskMaxRate;
+    }
+
+    
+    public double getOsCPURate4Avg()
+    {
+        return osCPURate4Avg;
+    }
+
+    
+    public void setOsCPURate4Avg(double osCPURate4Avg)
+    {
+        this.osCPURate4Avg = osCPURate4Avg;
+    }
+
+    
+    public double getOsCPURate3Avg()
+    {
+        return osCPURate3Avg;
+    }
+
+    
+    public void setOsCPURate3Avg(double osCPURate3Avg)
+    {
+        this.osCPURate3Avg = osCPURate3Avg;
+    }
+
+    
+    public double getOsCPURate5Avg()
+    {
+        return osCPURate5Avg;
+    }
+
+
+    public void setOsCPURate5Avg(double osCPURate5Avg)
+    {
+        this.osCPURate5Avg = osCPURate5Avg;
     }
     
 }

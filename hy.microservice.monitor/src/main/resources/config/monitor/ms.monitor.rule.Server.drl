@@ -53,7 +53,7 @@ rule "MS_Monitor_XRule_Server_CPU"
     salience 1
     dialect  "java"
     when
-        v_Log : ServerInfo( hostName == "10.1.50.101" && osCPURate >= 95 && isWarning == "0" );
+        v_Log : ServerInfo( hostName == "10.1.50.101" && osCPURate >= 95 && osCPURate4Avg >= 75 && isWarning == "0" );
     then
         String v_Phone   = "19909218550";
         String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "CPU繁忙" + v_Log.getOsCPURate() + "%";
