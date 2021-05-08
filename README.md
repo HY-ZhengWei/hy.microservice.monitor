@@ -47,3 +47,12 @@
 ### CPU预警
 
 ### 内存预警
+
+
+
+
+
+
+## 部署文档
+
+[下载](./hy.microservice.monitor/doc/OpenDoc.操作说明-监控服务.docx)
