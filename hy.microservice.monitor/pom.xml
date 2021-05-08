@@ -19,6 +19,7 @@
     
     <name>hy.microservice.monitor</name>
     <url>https://github.com/HY-ZhengWei/hy.microservice.monitor</url>
+    <!-- https://gitee.com/HY-ZhengWei/hy.microservice.monitor -->
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
