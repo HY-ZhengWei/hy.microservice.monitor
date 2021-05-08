@@ -18,9 +18,11 @@ rule "MS_Monitor_XRule_Server_Disk"
         v_Log : ServerInfo( hostName == "10.1.50.101" && osDiskMaxRate >= 92 && isWarning == "0" );
     then
         String v_Phone   = "19909218550";
+        String v_OpenID  = "ohwW61Wn2eaqmqUyHINyWj1vRM18";
         String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "硬盘空间吃紧" + v_Log.getOsDiskMaxRate() + "%";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
+        ((MessageService)XJava.getObject("MessageService")).weixin(v_OpenID ,v_Log.getHostName() ,v_Content);
         ((ServerService) XJava.getObject("ServerService")) .logWarn(v_Log.getId() ,v_Phone ,v_Content);
         v_Log.setIsWarning("1");
 end;
@@ -37,9 +39,11 @@ rule "MS_Monitor_XRule_Server_Memory"
         v_Log : ServerInfo( hostName == "10.1.50.101" && osMemoryRate >= 90 && isWarning == "0" );
     then
         String v_Phone   = "19909218550";
+        String v_OpenID  = "ohwW61Wn2eaqmqUyHINyWj1vRM18";
         String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "内存高占用" + v_Log.getOsMemoryRate() + "%";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
+        ((MessageService)XJava.getObject("MessageService")).weixin(v_OpenID ,v_Log.getHostName() ,v_Content);
         ((ServerService) XJava.getObject("ServerService")) .logWarn(v_Log.getId() ,v_Phone ,v_Content);
         v_Log.setIsWarning("1");
 end;
@@ -56,9 +60,11 @@ rule "MS_Monitor_XRule_Server_CPU"
         v_Log : ServerInfo( hostName == "10.1.50.101" && osCPURate >= 95 && osCPURate4Avg >= 75 && isWarning == "0" );
     then
         String v_Phone   = "19909218550";
+        String v_OpenID  = "ohwW61Wn2eaqmqUyHINyWj1vRM18";
         String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "CPU繁忙" + v_Log.getOsCPURate() + "%";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
+        ((MessageService)XJava.getObject("MessageService")).weixin(v_OpenID ,v_Log.getHostName() ,v_Content);
         ((ServerService) XJava.getObject("ServerService")) .logWarn(v_Log.getId() ,v_Phone ,v_Content);
         v_Log.setIsWarning("1");
 end;

@@ -25,6 +25,23 @@
             </addParam>
         </http>
         
+        
+        
+        <!-- 发微信 -->
+        <http id="XHTTP_MS_Monitor_Message_SendWeiXin">
+            <protocol>http</protocol>
+            <ip>10.1.50.60</ip>
+            <url>/msMessage/message/sendWeiXin</url>
+            <contentType>application/json</contentType> <!-- text/html -->
+            <requestType ref="this.$Request_Type_Post" />
+            <encode>false</encode>
+            <toUnicode>false</toUnicode>
+            
+            <addParam>
+                <paramName>token</paramName>
+            </addParam>
+        </http>
+        
     </xobjects>
 
 </config>
