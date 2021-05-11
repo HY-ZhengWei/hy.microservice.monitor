@@ -20,7 +20,7 @@ rule "MS_Monitor_XRule_Server_Disk"
         String v_Phone   = "19909218550";
         String v_OpenID  = "ohwW61Wn2eaqmqUyHINyWj1vRM18";
         String v_Mail    = "zwei@wzyb.com.cn";
-        String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "硬盘空间吃紧" + v_Log.getOsDiskMaxRate() + "%";
+        String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "硬盘空间吃紧" + v_Log.getOsDiskMaxRate() + "％";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
         ((MessageService)XJava.getObject("MessageService")).weixin(v_OpenID ,v_Log.getHostName() ,v_Content);
@@ -43,7 +43,7 @@ rule "MS_Monitor_XRule_Server_Memory"
         String v_Phone   = "19909218550";
         String v_OpenID  = "ohwW61Wn2eaqmqUyHINyWj1vRM18";
         String v_Mail    = "zwei@wzyb.com.cn";
-        String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "内存高占用" + v_Log.getOsMemoryRate() + "%";
+        String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "内存高占用" + v_Log.getOsMemoryRate() + "％";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
         ((MessageService)XJava.getObject("MessageService")).weixin(v_OpenID ,v_Log.getHostName() ,v_Content);
@@ -66,7 +66,7 @@ rule "MS_Monitor_XRule_Server_CPU"
         String v_Phone   = "19909218550";
         String v_OpenID  = "ohwW61Wn2eaqmqUyHINyWj1vRM18";
         String v_Mail    = "zwei@wzyb.com.cn";
-        String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "CPU繁忙" + v_Log.getOsCPURate() + "%";
+        String v_Content = "【吴忠仪表】告警-主机：" + v_Log.getHostName() + "CPU繁忙" + v_Log.getOsCPURate() + "％";
         
         ((MessageService)XJava.getObject("MessageService")).sms(v_Phone ,v_Content);
         ((MessageService)XJava.getObject("MessageService")).weixin(v_OpenID ,v_Log.getHostName() ,v_Content);
