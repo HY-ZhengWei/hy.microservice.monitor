@@ -21,7 +21,7 @@
                 (
                  id               VARCHAR(64)     NOT NULL          COMMENT '主键'
                 ,osType           VARCHAR(20)     NOT NULL          COMMENT '操作类型'
-                ,hostName         VARCHAR(100)    NOT NULL          COMMENT '主机名称'
+                ,hostName         VARCHAR(200)    NOT NULL          COMMENT '主机名称'
                 ,startTime        DATETIME        NOT NULL          COMMENT '服务的启动时间'
                 ,systemTime       DATETIME        NOT NULL          COMMENT '操作系统的当前时间'
                 ,osCPURate        NUMERIC(10 ,4)                    COMMENT '操作系统CPU使用率'
