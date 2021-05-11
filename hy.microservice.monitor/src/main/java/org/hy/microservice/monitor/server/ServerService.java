@@ -45,7 +45,7 @@ public class ServerService
         ServerInfo    v_Server  = new ServerInfo();
         
         v_Server.setId(StringHelp.getUUID());
-        v_Server.setHostName(      Help.getIPs());
+        v_Server.setHostName(      Help.getIP());
         v_Server.setStartTime( new Date(v_CReport.getStartTime()));
         v_Server.setSystemTime(new Date(v_CReport.getSystemTime()));
         v_Server.setOsCPURate(          v_CReport.getOsCPURate());
