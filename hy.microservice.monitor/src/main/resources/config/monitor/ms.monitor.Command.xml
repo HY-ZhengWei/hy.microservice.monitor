@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <import name="xobjects"        class="java.util.ArrayList" />
+    <import name="command"         class="org.hy.microservice.monitor.command.CommandService" />
+    
+    
+    
+    <!-- 执行操作系统命令的配置 -->
+    <xobjects>
+    
+        <command id="MS_Monitor_Command_清除Oracle过期归档日志">
+            <constructor>
+                <String>
+                <![CDATA[
+                    D:\\TimingClearArchLog\\ClearArchLog.bat
+                ]]>
+                </String>
+            </constructor>
+        </command>
+        
+    </xobjects>
+
+</config>

@@ -39,6 +39,10 @@
             </item>
             
             <item>
+                <value>config/monitor/ms.monitor.Command.xml</value>
+            </item>
+            
+            <item>
                 <value>config/monitor/ms.monitor.job.xml</value>
             </item>
             

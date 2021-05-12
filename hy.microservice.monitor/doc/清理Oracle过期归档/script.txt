@@ -1,0 +1,5 @@
+run{
+   crosscheck archivelog all;
+   DELETE noprompt ARCHIVELOG ALL COMPLETED BEFORE 'SYSDATE-1';
+   delete noprompt expired archivelog all;
+}
