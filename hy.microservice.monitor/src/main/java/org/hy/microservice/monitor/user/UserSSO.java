@@ -20,6 +20,9 @@ public class UserSSO extends SerializableDef
 
     private static final long serialVersionUID = -6709011909036487332L;
     
+    /** 用户主键ID */
+    private String id;
+    
     /** 应用appKey */
     private String appKey;
     
@@ -31,6 +34,9 @@ public class UserSSO extends SerializableDef
     
     /** 用户在第三方系统的编码 */
     private String userCode;
+    
+    /** 微信应用编号 */
+    private String appID;
     
     /** 微信用户应用ID */
     private String openID;
@@ -86,6 +92,46 @@ public class UserSSO extends SerializableDef
     /** 附加用户数据 */
     private Map<String ,String> datas;
 
+    
+    
+    /**
+     * 获取：微信应用编号
+     */
+    public String getAppID()
+    {
+        return this.appID;
+    }
+
+    
+    /**
+     * 设置：微信应用编号
+     * 
+     * @param i_AppID
+     */
+    public void setAppID(String i_AppID)
+    {
+        this.appID = i_AppID;
+    }
+    
+    
+    /**
+     * 获取：用户主键ID
+     */
+    public String getId()
+    {
+        return id;
+    }
+
+
+    /**
+     * 设置：用户主键ID
+     * 
+     * @param id
+     */
+    public void setId(String id)
+    {
+        this.id = id;
+    }
     
     
     /**
@@ -190,7 +236,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方用户中心的标识
      * 
-     * @param userId 
+     * @param userId
      */
     public void setUserId(String userId)
     {
@@ -201,7 +247,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的手机号
      * 
-     * @param mobile 
+     * @param mobile
      */
     public void setMobile(String mobile)
     {
@@ -212,7 +258,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的手机号
      * 
-     * @param phone 
+     * @param phone
      */
     public void setPhone(String phone)
     {
@@ -223,7 +269,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的邮箱
      * 
-     * @param email 
+     * @param email
      */
     public void setEmail(String email)
     {
@@ -234,7 +280,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的用户名
      * 
-     * @param userName 
+     * @param userName
      */
     public void setUserName(String userName)
     {
@@ -245,7 +291,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的编码
      * 
-     * @param userCode 
+     * @param userCode
      */
     public void setUserCode(String userCode)
     {
@@ -256,7 +302,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的用户类型
      * 
-     * @param userType 
+     * @param userType
      */
     public void setUserType(String userType)
     {
@@ -267,7 +313,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的登陆账号
      * 
-     * @param loginAccount 
+     * @param loginAccount
      */
     public void setLoginAccount(String loginAccount)
     {
@@ -278,7 +324,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户性别
      * 
-     * @param sex 
+     * @param sex
      */
     public void setSex(String sex)
     {
@@ -289,7 +335,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：会话ID
      * 
-     * @param sessionID 
+     * @param sessionID
      */
     public void setSessionID(String sessionID)
     {
@@ -300,7 +346,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：附加用户数据
      * 
-     * @param datas 
+     * @param datas
      */
     public void setDatas(Map<String ,String> datas)
     {
@@ -329,7 +375,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的组织编码
      * 
-     * @param orgCode 
+     * @param orgCode
      */
     public void setOrgCode(String orgCode)
     {
@@ -340,7 +386,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的组织名称
      * 
-     * @param orgName 
+     * @param orgName
      */
     public void setOrgName(String orgName)
     {
@@ -360,7 +406,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：应用appKey
      * 
-     * @param appKey 
+     * @param appKey
      */
     public void setAppKey(String appKey)
     {
@@ -380,7 +426,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：会话票据
      * 
-     * @param usid 
+     * @param usid
      */
     public void setUsid(String usid)
     {
@@ -400,7 +446,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：会话Cookie编码
      * 
-     * @param ucid 
+     * @param ucid
      */
     public void setUcid(String ucid)
     {
@@ -420,7 +466,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方用户中心的工号
      * 
-     * @param userNo 
+     * @param userNo
      */
     public void setUserNo(String userNo)
     {
@@ -440,7 +486,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的用户级别
      * 
-     * @param userLevel 
+     * @param userLevel
      */
     public void setUserLevel(String userLevel)
     {
@@ -460,7 +506,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的用户来源
      * 
-     * @param userSource 
+     * @param userSource
      */
     public void setUserSource(String userSource)
     {
@@ -480,7 +526,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：用户在第三方系统的昵称
      * 
-     * @param nickname 
+     * @param nickname
      */
     public void setNickname(String nickname)
     {
@@ -509,7 +555,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：微信用户应用ID
      * 
-     * @param openID 
+     * @param openID
      */
     public void setOpenID(String openID)
     {
@@ -520,7 +566,7 @@ public class UserSSO extends SerializableDef
     /**
      * 设置：微信用户统一ID
      * 
-     * @param unionID 
+     * @param unionID
      */
     public void setUnionID(String unionID)
     {

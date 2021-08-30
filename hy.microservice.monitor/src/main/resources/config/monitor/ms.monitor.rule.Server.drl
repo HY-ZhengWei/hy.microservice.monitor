@@ -15,7 +15,7 @@ rule "MS_Monitor_XRule_Server_Disk"
     salience 3
     dialect  "java"
     when
-        v_Log : ServerInfo( hostName == "10.1.50.101" && osDiskMaxRate >= 92 && isWarning == "0" );
+        v_Log : ServerInfo( hostName == "10.1.50.101" && osDiskMaxRate >= 95 && isWarning == "0" );
     then
         String v_Phone   = "19909218550";
         String v_OpenID  = "ohwW61Wn2eaqmqUyHINyWj1vRM18";

@@ -12,11 +12,16 @@
     </appenders>
 
     <loggers>
-        <logger name="org.hy.common"               level="info" />
-        <logger name="org.hy.microservice.monitor" level="debug" />
+        <logger name="org.hy.common" level="info"  additivity="false">
+            <AppenderRef ref="CONSOLE" />
+        </logger>
+        
+        <logger name="org.hy.microservice.monitor" level="debug" additivity="false">
+            <AppenderRef ref="CONSOLE" />
+        </logger>
         
         <root level="info">
-            <appenderref ref="CONSOLE"/>
+            <appenderref ref="CONSOLE" />
         </root>
     </loggers>
     
