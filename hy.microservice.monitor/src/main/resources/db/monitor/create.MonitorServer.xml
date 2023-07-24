@@ -42,7 +42,7 @@
 
                 ALTER TABLE MonitorServer ADD CONSTRAINT PK_FileInfo PRIMARY KEY (id);/
                 
-                CREATE INDEX MonitorServer_CTime_Host_IDX USING BTREE ON MonitorServer (createTime ,hostName);
+                CREATE INDEX MonitorServer_CTime_Host_IDX USING BTREE ON MonitorServer (createTime ,hostName);/
                 
                 Alter TABLE MonitorServer COMMENT                   = '服务器监控信息';/
                 ]]>

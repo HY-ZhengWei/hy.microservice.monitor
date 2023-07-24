@@ -19,8 +19,8 @@ import org.hy.common.app.Param;
 import org.hy.common.xml.XHttp;
 import org.hy.common.xml.log.Logger;
 import org.hy.microservice.common.BaseResponse;
-import org.hy.microservice.monitor.user.UserSSO;
-import org.hy.microservice.monitor.user.UserService;
+import org.hy.microservice.common.user.UserSSO;
+import org.hy.microservice.common.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
@@ -113,12 +113,12 @@ public class MonitorController
 //        boolean v_AddRet = this.postService.addPost(i_PostInfo);
 //        if ( v_AddRet )
 //        {
-//            $Logger.info("用户（" + i_PostInfo.getUserName() + i_PostInfo.getUserID() + "）发贴" + i_PostInfo.getTitle() + "，成功");
+//            $Logger.info("用户（" + i_PostInfo.getUserName() + i_PostInfo.getUserID() + "）操作" + i_PostInfo.getTitle() + "，成功");
 //            return this.queryPosts(i_PostInfo);
 //        }
 //        else
 //        {
-//            $Logger.error("用户（" + i_PostInfo.getUserName() + i_PostInfo.getUserID() + "）发贴" + i_PostInfo.getTitle() + "，异常");
+//            $Logger.error("用户（" + i_PostInfo.getUserName() + i_PostInfo.getUserID() + "）操作" + i_PostInfo.getTitle() + "，异常");
 //            return v_RetResp.setCode("-999").setMessage("系统异常");
 //        }
         return null;

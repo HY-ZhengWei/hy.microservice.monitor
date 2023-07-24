@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <import name="xconfig"         class="java.util.ArrayList" />
+    <import name="startupConfig"   class="java.util.ArrayList" />
+    <import name="item"            class="org.hy.common.app.Param" />
+    
+    
+    
+    <!-- 启动加载XML配置信息的列表 -->
+    <xconfig>
+        
+        <startupConfig id="StartupConfig_MS_Common" this="StartupConfig_MS_Common">
+        
+            <item if="IsInitDSG_MS_Monitor.getValue == 启用">
+                <value>config/monitor/ms.monitor.sys.DB.Config.xml</value>
+            </item>
+            
+            <item>
+                <value>config/monitor/ms.monitor.cloud.Config.xml</value>
+            </item>
+            
+            <item>
+                <value>config/monitor/ms.monitor.NTP.xml</value>
+            </item>
+            
+            <item>
+                <value>config/monitor/ms.monitor.Message.AppKey.Config.xml</value>
+            </item>
+            
+            <item>
+                <value>config/monitor/ms.monitor.Message.Http.xml</value>
+            </item>
+            
+            <item>
+                <value>config/monitor/ms.monitor.Command.xml</value>
+            </item>
+            
+        </startupConfig>
+        
+    </xconfig>
+    
+</config>

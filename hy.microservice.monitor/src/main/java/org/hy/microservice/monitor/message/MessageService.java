@@ -5,12 +5,13 @@ import java.util.Map;
 
 import org.hy.common.Help;
 import org.hy.common.Return;
+import org.hy.common.license.AppKey;
 import org.hy.common.xml.XHttp;
 import org.hy.common.xml.XJSON;
 import org.hy.common.xml.annotation.Xjava;
 import org.hy.microservice.common.BaseResp;
-import org.hy.microservice.monitor.user.UserSSO;
-import org.hy.microservice.monitor.user.XSSOUserService;
+import org.hy.microservice.common.user.UserSSO;
+import org.hy.microservice.common.user.UserService;
 
 
 
@@ -29,16 +30,19 @@ public class MessageService
     public  static final String $Succeed = "200";
     
     @Xjava(ref="XHTTP_MS_Monitor_Message_SendSMS")
-    private XHttp xhSendSMS;
+    private XHttp       xhSendSMS;
     
     @Xjava(ref="XHTTP_MS_Monitor_Message_SendWeiXin")
-    private XHttp xhSendWeiXin;
+    private XHttp       xhSendWeiXin;
     
     @Xjava(ref="XHTTP_MS_Monitor_Message_SendMail")
-    private XHttp xhSendMail;
+    private XHttp       xhSendMail;
+    
+    @Xjava(ref="Message_MS_Monitor_AppKey")
+    private AppKey      messageAppKey;
     
     @Xjava
-    private XSSOUserService ssoUserService;
+    private UserService userService;
     
     
     
@@ -61,7 +65,7 @@ public class MessageService
         v_UserSSO.setUserName("监控服务");
         v_UserSSO.setUserSource("监控服务");
         
-        String v_Token = ssoUserService.loginUser(v_UserSSO);
+        String v_Token = userService.getAccessToken(this.messageAppKey ,v_UserSSO);
         
         if ( Help.isNull(v_UserSSO) )
         {
@@ -125,7 +129,7 @@ public class MessageService
         v_UserSSO.setUserName("监控服务");
         v_UserSSO.setUserSource("监控服务");
         
-        String v_Token = ssoUserService.loginUser(v_UserSSO);
+        String v_Token = userService.getAccessToken(this.messageAppKey ,v_UserSSO);
         
         if ( Help.isNull(v_UserSSO) )
         {
@@ -190,7 +194,7 @@ public class MessageService
         v_UserSSO.setUserName("监控服务");
         v_UserSSO.setUserSource("监控服务");
         
-        String v_Token = ssoUserService.loginUser(v_UserSSO);
+        String v_Token = userService.getAccessToken(this.messageAppKey ,v_UserSSO);
         
         if ( Help.isNull(v_UserSSO) )
         {

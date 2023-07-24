@@ -3,37 +3,37 @@
     
     <modelVersion>4.0.0</modelVersion>
     
-    <groupId>org</groupId>
+    <groupId>cn.openapis</groupId>
     <artifactId>hy.microservice.monitor</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>war</packaging>                        <!-- Tomcat 启动Spring Boot Add ZhengWei(HY) 2019-01-13 -->
     
+    <name>cn.openapis.hy.microservice.monitor</name>
+    <url>https://github.com/HY-ZhengWei/hy.microservice.monitor</url>   <!-- https://gitee.com/HY-ZhengWei/hy.microservice.monitor -->
+    <description>cn.openapis.hy.microservice.monitor</description>
+    
     <developers>
-      <developer>
-          <id>hy</id>
-          <name>Wei Zheng</name>
-          <email>HY.ZhengWei@qq.com</email>
-          <url>https://github.com/hy-zhengwei</url>
-      </developer>
+        <developer>
+            <name>Zheng Wei</name>
+            <email>HY.ZhengWei@qq.com</email>
+            <url>https://github.com/HY-ZhengWei</url>
+        </developer>
     </developers>
     
-    <name>hy.microservice.monitor</name>
-    <url>https://github.com/HY-ZhengWei/hy.microservice.monitor</url>
-    <!-- https://gitee.com/HY-ZhengWei/hy.microservice.monitor -->
-    
     <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-  
+    
     <!-- spring boot基本环境 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.2</version>
+        <version>2.6.1</version>
     </parent>
 
     <dependencies>
-    
         <!-- Tomcat 启动Spring Boot Add ZhengWei(HY) 2019-01-13 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -105,7 +105,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.2.3</version>
+            <version>1.2.17</version>
         </dependency>
         
         <dependency>
@@ -132,38 +132,37 @@
             <version>5.7.0</version>
         </dependency>
         
-        <!-- https://github.com/HY-ZhengWei/hy.common.base -->
         <dependency>
-            <groupId>org</groupId>
-            <artifactId>hy.common.base</artifactId>
-            <version>1.0.157</version>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.21.1</version>
         </dependency>
         
-        <!-- https://github.com/HY-ZhengWei/hy.common.net -->
         <dependency>
-            <groupId>org</groupId>
-            <artifactId>hy.common.net</artifactId>
+            <groupId>cn.openapis</groupId>
+            <artifactId>hy.common</artifactId>
             <version>2.0.0</version>
+            <type>pom</type>
         </dependency>
         
-        <!-- https://github.com/HY-ZhengWei/hy.common.license -->
         <dependency>
-            <groupId>org</groupId>
-            <artifactId>hy.common.license</artifactId>
-            <version>1.1.1</version>
+            <groupId>cn.openapis</groupId>
+            <artifactId>hy.microservice</artifactId>
+            <version>1.1.8</version>
+            <type>war</type>
         </dependency>
         
-        <!-- https://github.com/HY-ZhengWei/hy.common.xjava -->
         <dependency>
-            <groupId>org</groupId>
-            <artifactId>hy.common.xjava</artifactId>
-            <version>4.1.2</version>
+            <groupId>cn.openapis</groupId>
+            <artifactId>hy.microservice</artifactId>
+            <version>1.1.8</version>
+            <type>jar</type>
+            <classifier>api</classifier>
         </dependency>
         
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
       

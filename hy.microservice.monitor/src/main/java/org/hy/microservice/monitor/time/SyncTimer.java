@@ -56,8 +56,8 @@ public class SyncTimer
      * @param i_NtpTimes  所有Ntp服务的校准结果
      * @param i_Max       排除最大的值
      * @return            Return = 真，当其它服务一致时，返回最大的延时的
-     *                    Return = 假，其它服务不一致时，也返回最大的延时，方便下一次判定   
-    */ 
+     *                    Return = 假，其它服务不一致时，也返回最大的延时，方便下一次判定
+    */
     private Return<Time> excludeWorstByMax(Time [] i_NtpTimes ,long i_Max)
     {
         Time v_MaxDelay = new Time().setDelay(Long.MIN_VALUE);
@@ -94,7 +94,7 @@ public class SyncTimer
         {
             return new Return<Time>(true).setParamObj(v_MaxDelay).setParamInt(v_NtpCount);
         }
-        else if ( v_NtpCount >= 1 ) 
+        else if ( v_NtpCount >= 1 )
         {
             return new Return<Time>(false).setParamObj(v_MaxDelay).setParamInt(v_NtpCount);
         }
@@ -117,8 +117,8 @@ public class SyncTimer
      * @param i_NtpTimes  所有Ntp服务的校准结果
      * @param i_Max       排除最小的值
      * @return            Return = 真，当其它服务一致时，返回最小的延时的
-     *                    Return = 假，其它服务不一致时，也返回最小的延时，方便下一次判定   
-    */ 
+     *                    Return = 假，其它服务不一致时，也返回最小的延时，方便下一次判定
+    */
     private Return<Time> excludeWorstByMin(Time [] i_NtpTimes ,long i_Min)
     {
         Time v_MaxDelay = new Time().setDelay(Long.MIN_VALUE);
@@ -155,7 +155,7 @@ public class SyncTimer
         {
             return new Return<Time>(true).setParamObj(v_MinDelay).setParamInt(v_NtpCount);
         }
-        else if ( v_NtpCount >= 1 ) 
+        else if ( v_NtpCount >= 1 )
         {
             return new Return<Time>(false).setParamObj(v_MinDelay).setParamInt(v_NtpCount);
         }
@@ -209,7 +209,7 @@ public class SyncTimer
                 continue;
             }
             
-            Object [] v_HistoryTimes = this.historyTimes.getArray();
+            Object [] v_HistoryTimes = this.historyTimes.toArray();
             Time      v_Last1        = (Time)v_HistoryTimes[v_HistoryTimes.length - 1];
             long      v_Diff0_1      = v_NtpTime.getNtpTime() - v_Last1.getNtpTime();
             
@@ -245,7 +245,7 @@ public class SyncTimer
         // 排除最差的Ntp服务（最大排除）
         long         v_MaxDelay = Long.MAX_VALUE;
         Return<Time> v_EWMax    = null;
-        do 
+        do
         {
             v_EWMax = this.excludeWorstByMax(v_NtpTimes ,v_MaxDelay);
             
@@ -276,7 +276,7 @@ public class SyncTimer
         // 排除最差的Ntp服务（最小排除）
         long         v_MinDelay = Long.MIN_VALUE;
         Return<Time> v_EWMin    = null;
-        do 
+        do
         {
             v_EWMin = this.excludeWorstByMin(v_NtpTimes ,v_MinDelay);
             

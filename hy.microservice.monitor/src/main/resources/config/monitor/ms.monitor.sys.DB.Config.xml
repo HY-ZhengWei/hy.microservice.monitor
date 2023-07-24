@@ -13,9 +13,9 @@
 
         <dataSource id="DS_MS_Monitor" >
             <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
-            <url><![CDATA[jdbc:mysql://10.1.90.23:3306/yibiao?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8]]></url>
-            <username encrypt="org.hy.common.StringHelp">encrypt:r/w/AF+EJ60=</username>
-            <password encrypt="org.hy.common.StringHelp">encrypt:i7t+OqK6N5U=</password>
+            <url><![CDATA[jdbc:mysql://10.1.50.130:3306/monitor?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8]]></url>
+            <username encrypt="org.hy.common.StringHelp">root</username>
+            <password encrypt="org.hy.common.StringHelp">wzybVM9114</password>
             <filters>stat,wall,log4j2</filters>
             <initialSize>1</initialSize>
             <minIdle>1</minIdle>
@@ -38,6 +38,11 @@
                 <dataSource ref="DS_MS_Monitor" />
             </call>
         </dataSourceGroup>
+        
+        
+        
+        <!-- 重新定义公共服务中的数据库连接池组 -->
+        <dataSourceGroup id="DSG_MS_Common" this="DSG_MS_Monitor" />
 
     </sqls>
 
