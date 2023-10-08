@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.hy.common.Help;
 import org.hy.common.Return;
+import org.hy.common.app.Param;
 import org.hy.common.license.AppKey;
 import org.hy.common.xml.XHttp;
 import org.hy.common.xml.XJSON;
@@ -41,6 +42,9 @@ public class MessageService
     @Xjava(ref="Message_MS_Monitor_AppKey")
     private AppKey      messageAppKey;
     
+    @Xjava(ref="MS_Monitor_ServiceName")
+    private Param       serviceName;
+    
     @Xjava
     private UserService userService;
     
@@ -61,7 +65,7 @@ public class MessageService
     {
         UserSSO v_UserSSO = new UserSSO();
         
-        v_UserSSO.setUserId("hy.micorservice.monitor");
+        v_UserSSO.setUserId(this.serviceName.getValue());
         v_UserSSO.setUserName("监控服务");
         v_UserSSO.setUserSource("监控服务");
         
@@ -125,7 +129,7 @@ public class MessageService
     {
         UserSSO v_UserSSO = new UserSSO();
         
-        v_UserSSO.setUserId("hy.micorservice.monitor");
+        v_UserSSO.setUserId(this.serviceName.getValue());
         v_UserSSO.setUserName("监控服务");
         v_UserSSO.setUserSource("监控服务");
         
@@ -190,7 +194,7 @@ public class MessageService
     {
         UserSSO v_UserSSO = new UserSSO();
         
-        v_UserSSO.setUserId("hy.micorservice.monitor");
+        v_UserSSO.setUserId(this.serviceName.getValue());
         v_UserSSO.setUserName("监控服务");
         v_UserSSO.setUserSource("监控服务");
         
