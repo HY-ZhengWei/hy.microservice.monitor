@@ -5,7 +5,7 @@
     
     <groupId>cn.openapis</groupId>
     <artifactId>hy.microservice.monitor</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <packaging>war</packaging>                        <!-- Tomcat 启动Spring Boot Add ZhengWei(HY) 2019-01-13 -->
     
     <name>cn.openapis.hy.microservice.monitor</name>
@@ -141,21 +141,21 @@
         <dependency>
             <groupId>cn.openapis</groupId>
             <artifactId>hy.common</artifactId>
-            <version>2.1.0</version>
+            <version>2.2.3</version>
             <type>pom</type>
         </dependency>
         
         <dependency>
             <groupId>cn.openapis</groupId>
             <artifactId>hy.microservice</artifactId>
-            <version>1.4.0</version>
+            <version>1.5.5</version>
             <type>war</type>
         </dependency>
         
         <dependency>
             <groupId>cn.openapis</groupId>
             <artifactId>hy.microservice</artifactId>
-            <version>1.4.0</version>
+            <version>1.5.5</version>
             <type>jar</type>
             <classifier>api</classifier>
         </dependency>

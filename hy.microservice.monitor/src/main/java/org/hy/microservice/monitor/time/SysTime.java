@@ -6,6 +6,7 @@ import java.util.List;
 import org.hy.common.Date;
 import org.hy.common.Help;
 import org.hy.common.StringHelp;
+import org.hy.common.xml.XJava;
 import org.hy.common.xml.log.Logger;
 
 import com.sun.jna.Library;
@@ -112,22 +113,22 @@ public class SysTime
         else if ( this.osType == 2 )
         {
             Date v_NewTime = new Date(Date.getNowTime().getTime() + i_TimeDelay);
-            List<String> v_Ret = Help.executeCommand(true ,"date" ,"-s" ,v_NewTime.getFullMilli());
+            List<String> v_Ret = Help.executeCommand("UTF-8", true, true, XJava.getParam("MS_Monitor_Command_Timeout").getValueInt(), "date" ,"-s" ,v_NewTime.getFullMilli());
             
             Help.print(v_Ret);
             return true;
             
 //            LinuxTimeval.ByReference  tv = new LinuxTimeval.ByReference();
 //            LinuxTimezone.ByReference tz = new LinuxTimezone.ByReference();
-//            
+//
 //            int v_Ret = LinuxC.INSTANCE.gettimeofday(tv ,tz);
 //            System.out.println(v_Ret);
-//            
+//
 //            long v_NewTime = Date.getNowTime().getTime() + i_TimeDiff;
-//            
+//
 //            tv.tv_sec  = new NativeLong(v_NewTime / 1000);
 //            tv.tv_usec = new NativeLong((v_NewTime % 1000) * 1000);
-//            
+//
 //            v_Ret = LinuxC.INSTANCE.settimeofday(tv ,tz);
 //            System.out.println(v_Ret);
         }
@@ -150,7 +151,7 @@ public class SysTime
         public static class ByValue     extends LinuxTimezone implements Structure.ByValue{}
         
         public int tz_minuteswest;
-        public int tz_dsttime; 
+        public int tz_dsttime;
     }
 
     

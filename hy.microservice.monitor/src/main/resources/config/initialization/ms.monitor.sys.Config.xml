@@ -69,6 +69,13 @@
                 <onlyRead>true</onlyRead>
             </item>
             
+            
+            <item id="MS_Monitor_Command_Timeout">
+                <name>MS_Monitor_Command_Timeout</name>
+                <valueInt>15</valueInt>
+                <comment>执行系统命令的超时时长（单位：秒）</comment>
+            </item>
+            
         </xparam>
         
     </xconfig>

@@ -3,6 +3,7 @@ package org.hy.microservice.monitor.command;
 import java.util.List;
 
 import org.hy.common.Help;
+import org.hy.common.xml.XJava;
 import org.hy.common.xml.log.Logger;
 
 
@@ -34,7 +35,7 @@ public class CommandService
     
     public void execute()
     {
-        List<String> v_Ret = Help.executeCommand(true ,true ,this.cmd);
+        List<String> v_Ret = Help.executeCommand("UTF-8", true, true, XJava.getParam("MS_Monitor_Command_Timeout").getValueInt(), this.cmd);
         
         if ( !Help.isNull(v_Ret) )
         {
